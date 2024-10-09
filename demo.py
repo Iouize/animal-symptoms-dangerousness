@@ -2,7 +2,6 @@ import streamlit as st
 import csv
 import pickle
 import pandas as pd
-from data_cleaner import DataCleaner, clean, change
 
 st.title("Demo ia o'poil")
 
@@ -40,7 +39,7 @@ for i, symptom in enumerate(symptoms_selected):
     cat = f"symptoms{i+1}"
     user_prediction[cat] = symptom
 
-model = pickle.load(open('models/opoil-pipelinev3.pkl', 'rb'))
+model = pickle.load(open('models/opoilv4.pkl', 'rb'))
 
 prediction = model.predict(pd.DataFrame([user_prediction]))
 
