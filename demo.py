@@ -40,10 +40,8 @@ for i, symptom in enumerate(symptoms_selected):
     cat = f"symptoms{i+1}"
     user_prediction[cat] = symptom
 
-st.write(pd.DataFrame([user_prediction]))
-
 model = pickle.load(open('models/opoil-pipelinev3.pkl', 'rb'))
 
 prediction = model.predict(pd.DataFrame([user_prediction]))
 
-st.write(prediction)
+st.write(f"Is it dangerous : {prediction[0]}")
